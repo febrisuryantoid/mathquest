@@ -1,0 +1,25 @@
+
+{
+  "name": "Kuis Matematika",
+  "short_name": "MathQuest",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fce7f3",
+  "theme_color": "#FF6B99",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://khncsblrkszxmkuqkyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://khncsblrkszxmkuqkyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "description": "Game edukasi matematika interaktif untuk anak SD.",
+  "screenshots": []
+}

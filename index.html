@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#BE185D">
+    <link rel="icon" type="image/png" href="https://khncsblrkszxmkuqkykyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png">
+    <link rel="apple-touch-icon" href="https://khncsblrkszxmkuqkyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png">
+    
+    <title>Kuis Matematika: MathQuest Global Design System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Titan+One&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Fredoka', 'sans-serif'],
+              display: ['"Titan One"', 'cursive'],
+            },
+            colors: {
+              candy: {
+                // Professional Solid Candy Palette
+                blue: { light: '#E0F2FE', base: '#3B82F6', dark: '#1D4ED8', deep: '#1e3a8a' },
+                purple: { light: '#F3E8FF', base: '#A855F7', dark: '#7E22CE', deep: '#581c87' },
+                pink: { light: '#FCE7F3', base: '#FF6B99', dark: '#BE185D', deep: '#831843' },
+                yellow: { light: '#FEF9C3', base: '#FACC15', dark: '#A16207', deep: '#854d0e' },
+                mint: { light: '#F0FDFA', base: '#2DD4BF', dark: '#0F766E', deep: '#064e3b' },
+                orange: { light: '#FFEDD5', base: '#FB923C', dark: '#C2410C', deep: '#7c2d12' },
+                lime: { light: '#F7FEE7', base: '#84CC16', dark: '#4D7C0F', deep: '#365314' },
+                ocean: { light: '#E0F2FE', base: '#0EA5E9', dark: '#0369A1', deep: '#0c4a6e' },
+                strawberry: { light: '#FFE4E6', base: '#F43F5E', dark: '#9F1239', deep: '#4c0519' },
+                indigo: { light: '#E0E7FF', base: '#6366F1', dark: '#4338CA', deep: '#312e81' },
+                peach: { light: '#FFF7ED', base: '#FF8A65', dark: '#D84315', deep: '#5d1c09' },
+                slate: { light: '#F8FAFC', base: '#E2E8F0', dark: '#94A3B8', deep: '#475569' }
+              }
+            },
+            boxShadow: {
+              'candy-sm': '0 4px 0 0 rgba(0,0,0,0.15)',
+              'candy-md': '0 8px 0 0 rgba(0,0,0,0.18), 0 10px 20px rgba(0,0,0,0.1)',
+              'candy-lg': '0 12px 0 0 rgba(0,0,0,0.2), 0 15px 30px rgba(0,0,0,0.2)',
+              'candy-inner': 'inset 0 6px 0 rgba(255,255,255,0.4), inset 0 -6px 0 rgba(0,0,0,0.08)',
+            },
+            animation: {
+              'pop-in': 'pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'float': 'float 4s ease-in-out infinite',
+              'jelly': 'jelly 0.6s both',
+              'shine': 'shine 3s infinite',
+            },
+            keyframes: {
+              'pop-in': {
+                '0%': { transform: 'scale(0.8) translateY(30px)', opacity: '0' },
+                '100%': { transform: 'scale(1) translateY(0)', opacity: '1' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-12px)' },
+              },
+              'jelly': {
+                '0%, 100%': { transform: 'scale(1, 1)' },
+                '25%': { transform: 'scale(0.9, 1.1)' },
+                '50%': { transform: 'scale(1.1, 0.9)' },
+                '75%': { transform: 'scale(0.95, 1.05)' },
+              },
+              'shine': {
+                '0%': { transform: 'translateX(-150%) skewX(-20deg)' },
+                '40%, 100%': { transform: 'translateX(150%) skewX(-20deg)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        --safe-top: env(safe-area-inset-top, 0px);
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      body {
+        background-color: #BE185D;
+        color: #1e293b;
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior: none;
+        user-select: none;
+        overflow-x: hidden;
+      }
+
+      .bg-main {
+        position: fixed;
+        inset: 0;
+        z-index: -10;
+        background: radial-gradient(circle at 50% 50%, #FF2E93 0%, #BE185D 100%);
+      }
+
+      /* Ultimate 3D Candy Surface Utility */
+      .candy-surface {
+        border-radius: 2.5rem;
+        border-top: 3px solid rgba(255,255,255,0.9);
+        border-left: 2px solid rgba(255,255,255,0.6);
+        border-right: 2px solid rgba(255,255,255,0.4);
+        border-bottom: 12px solid rgba(0,0,0,0.15);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .candy-gloss {
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 50%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .text-3d {
+        text-shadow: 0 4px 0 rgba(0,0,0,0.15), 0 8px 15px rgba(0,0,0,0.1);
+      }
+
+      .text-outline-white {
+        -webkit-text-stroke: 2px white;
+        paint-order: stroke fill;
+      }
+
+      .game-container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: clamp(1rem, 4vw, 3rem);
+      }
+
+      /* Disable scrolling visuals */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body class="no-scrollbar min-h-[100dvh]">
+    <div class="bg-main"></div>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "MathQuest",
+  "description": "An interactive, gamified math quiz adventure for children aged 6-12. Features a leveling system, animated avatars, and a vibrant UI to make learning mathematics fun and engaging.",
+  "requestFramePermissions": []
+}
