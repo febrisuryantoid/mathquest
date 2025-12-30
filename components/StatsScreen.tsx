@@ -68,14 +68,14 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({ stats, onBack, lang })
       badge: "bg-candy-yellow-base text-white border-2 border-white shadow-md",
       text: "text-candy-yellow-deep",
       score: "bg-white text-candy-yellow-deep border-candy-yellow-base",
-      icon: <Crown className="text-candy-yellow-dark fill-candy-yellow-base" size={32} />
+      icon: <Crown className="text-candy-yellow-dark fill-candy-yellow-base w-6 h-6 md:w-8 md:h-8" />
     };
     if (index === 1) return {
       container: "bg-candy-slate-light border-candy-slate-base",
       badge: "bg-candy-slate-base text-white border-2 border-white",
       text: "text-candy-slate-deep",
       score: "bg-white text-candy-slate-deep border-candy-slate-base",
-      icon: <Medal className="text-candy-slate-dark" size={26} />
+      icon: <Medal className="text-candy-slate-dark w-5 h-5 md:w-7 md:h-7" />
     };
     const colors = ["indigo", "pink", "blue", "purple", "orange"];
     const col = colors[index % colors.length];
@@ -89,53 +89,53 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({ stats, onBack, lang })
   };
 
   return (
-    <div className="flex flex-col min-h-full animate-pop-in pb-24 px-6 -mx-4 pt-4 overflow-y-auto no-scrollbar">
+    <div className="flex flex-col min-h-full animate-pop-in pb-24 px-4 md:px-6 -mx-4 pt-4 overflow-y-auto no-scrollbar">
       
-      <div className="flex items-center mb-10 shrink-0">
+      <div className="flex items-center mb-6 md:mb-10 shrink-0">
         <button 
           onClick={onBack}
-          className="w-14 h-14 bg-candy-indigo-light rounded-2xl shadow-candy-md flex items-center justify-center text-candy-indigo-base border-b-8 border-x-2 border-t-2 border-candy-indigo-base hover:scale-110 active:scale-95 transition-all"
+          className="w-10 h-10 md:w-14 md:h-14 bg-candy-indigo-light rounded-xl md:rounded-2xl shadow-candy-md flex items-center justify-center text-candy-indigo-base border-b-[4px] md:border-b-8 border-x-2 border-t-2 border-candy-indigo-base hover:scale-110 active:scale-95 transition-all"
         >
-          <ArrowLeft size={32} strokeWidth={3} />
+          <ArrowLeft size={24} className="md:w-[32px] md:h-[32px]" strokeWidth={3} />
         </button>
-        <h1 className="flex-1 text-center text-4xl md:text-5xl font-display text-white text-outline-white drop-shadow-2xl tracking-wide uppercase">
+        <h1 className="flex-1 text-center text-2xl md:text-5xl font-display text-white text-outline-white drop-shadow-2xl tracking-wide uppercase">
           {t.stats.title}
         </h1>
-        <div className="w-14"></div>
+        <div className="w-10 md:w-14"></div>
       </div>
 
-      <div className="bg-candy-indigo-light rounded-[3rem] border-b-[15px] border-x-2 border-t-2 border-candy-indigo-base p-8 relative overflow-hidden mb-12 shadow-candy-lg">
+      <div className="bg-candy-indigo-light rounded-3xl md:rounded-[3rem] border-b-[8px] md:border-b-[15px] border-x-2 border-t-2 border-candy-indigo-base p-6 md:p-8 relative overflow-hidden mb-8 md:mb-12 shadow-candy-lg">
         <div className="candy-gloss opacity-50" />
         <div className="relative z-10 flex flex-col items-center text-center">
-          <div className="bg-white p-4 rounded-[2.5rem] mb-6 shadow-candy-md border-b-[8px] border-candy-indigo-light">
-               <Avatar type={stats.avatarId} emotion="happy" className="w-32 h-32" />
+          <div className="bg-white p-3 md:p-4 rounded-[2rem] md:rounded-[2.5rem] mb-4 md:mb-6 shadow-candy-md border-b-[6px] md:border-b-[8px] border-candy-indigo-light">
+               <Avatar type={stats.avatarId} emotion="happy" className="w-24 h-24 md:w-32 md:h-32" />
           </div>
           
-          <h2 className="text-3xl font-display text-candy-indigo-deep uppercase tracking-widest bg-white/90 px-10 py-3 rounded-full border-b-4 border-candy-indigo-base shadow-sm">
+          <h2 className="text-xl md:text-3xl font-display text-candy-indigo-deep uppercase tracking-widest bg-white/90 px-6 md:px-10 py-2 md:py-3 rounded-full border-b-[3px] md:border-b-4 border-candy-indigo-base shadow-sm">
             {rankTitle}
           </h2>
           
-          <div className="grid grid-cols-3 gap-5 w-full mt-10">
+          <div className="grid grid-cols-3 gap-2 md:gap-5 w-full mt-6 md:mt-10">
             {[
               { label: t.stats.score, val: stats.totalScore, icon: <Trophy />, col: 'blue' },
               { label: t.stats.accuracy, val: `${accuracy}%`, icon: <Target />, col: 'pink' },
               { label: t.stats.winRate, val: `${winRate}%`, icon: <PieChart />, col: 'mint' }
             ].map((item, idx) => (
-              <div key={idx} className={`flex flex-col items-center p-5 bg-white rounded-[2rem] border-b-8 border-candy-${item.col}-base shadow-inner`}>
-                 <div className={`text-candy-${item.col}-base mb-3`}>{React.cloneElement(item.icon as any, { size: 32 })}</div>
-                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 leading-none">{item.label}</span>
-                 <span className="font-display text-2xl text-slate-800">{item.val}</span>
+              <div key={idx} className={`flex flex-col items-center p-3 md:p-5 bg-white rounded-2xl md:rounded-[2rem] border-b-[4px] md:border-b-8 border-candy-${item.col}-base shadow-inner`}>
+                 <div className={`text-candy-${item.col}-base mb-1 md:mb-3`}>{React.cloneElement(item.icon as any, { size: 20, className: "md:w-8 md:h-8" })}</div>
+                 <span className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1 md:mb-2 leading-none">{item.label}</span>
+                 <span className="font-display text-lg md:text-2xl text-slate-800">{item.val}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-[3rem] border-b-[12px] border-x-2 border-t-2 border-candy-blue-base p-10 shadow-candy-lg mb-12">
-            <h3 className="text-2xl font-display text-candy-blue-deep mb-8 flex items-center gap-4 uppercase tracking-widest">
-            <BarChart3 className="text-candy-blue-base" size={32} /> {t.stats.chartTitle}
+      <div className="bg-white rounded-3xl md:rounded-[3rem] border-b-[8px] md:border-b-[12px] border-x-2 border-t-2 border-candy-blue-base p-6 md:p-10 shadow-candy-lg mb-8 md:mb-12">
+            <h3 className="text-xl md:text-2xl font-display text-candy-blue-deep mb-4 md:mb-8 flex items-center gap-2 md:gap-4 uppercase tracking-widest">
+            <BarChart3 className="text-candy-blue-base w-6 h-6 md:w-8 md:h-8" /> {t.stats.chartTitle}
             </h3>
-            <div className="flex items-end justify-between h-52 gap-4 pt-10 border-b-[6px] border-candy-blue-light pb-4">
+            <div className="flex items-end justify-between h-40 md:h-52 gap-2 md:gap-4 pt-6 md:pt-10 border-b-[4px] md:border-b-[6px] border-candy-blue-light pb-4">
                 {levels.map(lvl => {
                     const id = `age_${stats.selectedAge}_lvl_${lvl}`;
                     const stars = stats.stars[id] || 0;
@@ -149,16 +149,16 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({ stats, onBack, lang })
                     else if (isUnlocked) col = 'purple';
 
                     return (
-                    <div key={lvl} className="flex-1 flex flex-col items-center gap-4 h-full justify-end group">
+                    <div key={lvl} className="flex-1 flex flex-col items-center gap-1 md:gap-4 h-full justify-end group">
                         <div className="relative w-full h-full flex items-end">
                             <div 
-                                className={`w-full rounded-t-2xl transition-all duration-1000 ease-out border-x-2 border-t-2 border-white shadow-md bg-candy-${col}-base border-candy-${col}-dark`}
+                                className={`w-full rounded-t-lg md:rounded-t-2xl transition-all duration-1000 ease-out border-x border-t md:border-x-2 md:border-t-2 border-white shadow-md bg-candy-${col}-base border-candy-${col}-dark`}
                                 style={{ height: `${height}%` }}
                             >
                                 <div className="candy-gloss opacity-40" />
                             </div>
                         </div>
-                        <span className={`text-sm font-black ${isUnlocked ? 'text-candy-blue-deep' : 'text-slate-300'}`}>{lvl}</span>
+                        <span className={`text-[10px] md:text-sm font-black ${isUnlocked ? 'text-candy-blue-deep' : 'text-slate-300'}`}>{lvl}</span>
                     </div>
                     )
                 })}
@@ -166,36 +166,36 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({ stats, onBack, lang })
       </div>
 
       <div className="mb-12 shrink-0">
-        <h3 className="text-3xl md:text-4xl font-display text-white text-outline-white mb-10 px-4 flex items-center justify-center gap-5 drop-shadow-2xl">
-          <Crown className="text-candy-yellow-base fill-candy-yellow-base" size={56} /> {t.stats.leaderboardTitle}
+        <h3 className="text-2xl md:text-4xl font-display text-white text-outline-white mb-6 md:mb-10 px-4 flex items-center justify-center gap-3 md:gap-5 drop-shadow-2xl">
+          <Crown className="text-candy-yellow-base fill-candy-yellow-base w-10 h-10 md:w-14 md:h-14" /> {t.stats.leaderboardTitle}
         </h3>
         
         {loading ? (
            <div className="flex justify-center py-16">
-              <Loader2 className="animate-spin text-white drop-shadow-lg" size={60} />
+              <Loader2 className="animate-spin text-white drop-shadow-lg" size={40} />
            </div>
         ) : (
-          <div className="flex flex-col gap-8 px-2"> 
+          <div className="flex flex-col gap-4 md:gap-8 px-1 md:px-2"> 
             {leaderboard.map((player, index) => {
                 const style = getRankStyle(index);
                 return (
-                    <div key={index} className="p-1">
-                        <div className={`relative flex items-center gap-6 p-5 rounded-[2.5rem] border-b-[10px] border-x-2 border-t-2 transition-all shadow-candy-md ${style.container}`}>
+                    <div key={index} className="p-0.5 md:p-1">
+                        <div className={`relative flex items-center gap-3 md:gap-6 p-4 md:p-5 rounded-3xl md:rounded-[2.5rem] border-b-[6px] md:border-b-[10px] border-x-2 border-t-2 transition-all shadow-candy-md ${style.container}`}>
                             <div className="candy-gloss opacity-30" />
-                            <div className={`w-16 h-16 rounded-[1.25rem] flex items-center justify-center font-display text-3xl shrink-0 z-10 ${style.badge}`}>
+                            <div className={`w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-[1.25rem] flex items-center justify-center font-display text-lg md:text-3xl shrink-0 z-10 ${style.badge}`}>
                                 {index + 1}
                             </div>
                             
-                            <div className="w-16 h-16 shrink-0 bg-white rounded-2xl p-1.5 border-2 border-white/50 z-10 shadow-sm">
+                            <div className="w-10 h-10 md:w-16 md:h-16 shrink-0 bg-white rounded-xl md:rounded-2xl p-1 md:p-1.5 border-2 border-white/50 z-10 shadow-sm">
                                 <Avatar type={player.avatar || 'robot'} emotion="happy" className="w-full h-full" />
                             </div>
                             
-                            <div className="flex-1 min-w-0 flex items-center gap-4 z-10">
-                                <div className={`font-black text-2xl truncate tracking-wide ${style.text}`}>{player.name}</div>
+                            <div className="flex-1 min-w-0 flex items-center gap-2 md:gap-4 z-10">
+                                <div className={`font-black text-lg md:text-2xl truncate tracking-wide ${style.text}`}>{player.name}</div>
                                 {style.icon}
                             </div>
                             
-                            <div className={`font-display text-3xl px-6 py-3 rounded-[1.5rem] border-b-4 shadow-inner z-10 ${style.score}`}>
+                            <div className={`font-display text-xl md:text-3xl px-3 py-1.5 md:px-6 md:py-3 rounded-xl md:rounded-[1.5rem] border-b-[3px] md:border-b-4 shadow-inner z-10 ${style.score}`}>
                                 {player.score}
                             </div>
                         </div>
@@ -205,7 +205,7 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({ stats, onBack, lang })
           </div>
         )}
       </div>
-      <div className="h-24 shrink-0"></div>
+      <div className="h-16 md:h-24 shrink-0"></div>
     </div>
   );
 };

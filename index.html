@@ -8,7 +8,7 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#BE185D">
-    <link rel="icon" type="image/png" href="https://khncsblrkszxmkuqkykyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png">
+    <link rel="icon" type="image/png" href="https://khncsblrkszxmkuqkyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png">
     <link rel="apple-touch-icon" href="https://khncsblrkszxmkuqkyyy.supabase.co/storage/v1/object/public/images/icon-math-quest.png">
     
     <title>Kuis Matematika: MathQuest Global Design System</title>
@@ -93,11 +93,18 @@
         overflow-x: hidden;
       }
 
+      /* Default Light Mode Gradient */
       .bg-main {
         position: fixed;
         inset: 0;
         z-index: -10;
         background: radial-gradient(circle at 50% 50%, #FF2E93 0%, #BE185D 100%);
+        transition: background 0.5s ease-in-out;
+      }
+
+      /* Dark Mode Gradient */
+      body.dark .bg-main {
+        background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
       }
 
       /* Ultimate 3D Candy Surface Utility */

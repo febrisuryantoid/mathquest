@@ -35,6 +35,12 @@ export const App: React.FC = () => {
     const browserLang = navigator.language || (navigator as any).userLanguage || 'id';
     return browserLang.toLowerCase().startsWith('id') ? 'id' : 'en';
   });
+
+  // State for Theme (Dark/Light)
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const savedTheme = localStorage.getItem('mathquest_theme');
+    return (savedTheme === 'dark') ? 'dark' : 'light';
+  });
   
   const t = translations[language];
 
@@ -43,6 +49,16 @@ export const App: React.FC = () => {
     document.title = translations[language].meta.title;
     localStorage.setItem('mathquest_lang', language);
   }, [language]);
+
+  // Effect to handle Theme
+  useEffect(() => {
+    localStorage.setItem('mathquest_theme', theme);
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [theme]);
 
   const [playerStats, setPlayerStats] = useState<PlayerStats>(() => {
     const saved = localStorage.getItem('mathquest_stats_v3');
@@ -223,6 +239,10 @@ export const App: React.FC = () => {
     const nextLang = language === 'id' ? 'en' : 'id';
     setLanguage(nextLang);
   };
+  const toggleTheme = () => {
+    soundManager.play('click');
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <div className="min-h-[100dvh] relative font-sans overflow-x-hidden" onClick={handleUserInteraction}>
@@ -254,9 +274,11 @@ export const App: React.FC = () => {
                lang={language}
                musicEnabled={musicEnabled}
                sfxEnabled={sfxEnabled}
+               theme={theme}
                onToggleMusic={toggleMusic}
                onToggleSfx={toggleSfx}
                onToggleLang={toggleLanguage}
+               onToggleTheme={toggleTheme}
                stats={playerStats}
                onBuyAvatar={handleBuyAvatar}
                onOpenStats={() => { setPreviousView(GameView.NAME_INPUT); setView(GameView.STATS); }}

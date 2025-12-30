@@ -31,12 +31,12 @@ const LevelCard: React.FC<LevelCardProps> = ({ lvl, isLocked, isNext, stars, t, 
     const currentAssort = assortments[(lvl.level - 1) % assortments.length];
 
      return (
-        <div className="p-2 w-full">
+        <div className="p-1.5 md:p-2 w-full">
             <button
                 disabled={isLocked}
                 onClick={onClick}
                 className={`
-                    relative group p-0 rounded-[2.5rem] transition-all duration-300 w-full text-left outline-none
+                    relative group p-0 rounded-3xl md:rounded-[2.5rem] transition-all duration-300 w-full text-left outline-none
                     ${isLocked 
                     ? 'opacity-60 grayscale cursor-not-allowed scale-95' 
                     : isNext 
@@ -46,7 +46,7 @@ const LevelCard: React.FC<LevelCardProps> = ({ lvl, isLocked, isNext, stars, t, 
                 `}
                 >
                 <div className={`
-                    relative overflow-hidden rounded-[2.5rem] border-b-[10px] border-x-2 border-t-2 shadow-candy-md h-full
+                    relative overflow-hidden rounded-3xl md:rounded-[2.5rem] border-b-[6px] md:border-b-[10px] border-x-2 border-t-2 shadow-candy-md h-full
                     ${isLocked ? 'bg-slate-200 border-slate-400' : 
                         isNext ? 'bg-candy-mint-base border-candy-mint-dark' : 
                         `${currentAssort.base} ${currentAssort.border}`}
@@ -54,37 +54,37 @@ const LevelCard: React.FC<LevelCardProps> = ({ lvl, isLocked, isNext, stars, t, 
                     <div className="candy-gloss" />
 
                     <div className={`
-                        p-6 flex items-center gap-5 h-full min-h-[110px]
+                        p-4 md:p-6 flex items-center gap-3 md:gap-5 h-full min-h-[80px] md:min-h-[110px]
                         ${isLocked ? 'bg-slate-50' : isNext ? 'bg-gradient-to-b from-candy-mint-light to-white' : ''}
                     `}>
                         <div className={`
-                            w-16 h-16 rounded-[1.25rem] flex flex-col items-center justify-center shrink-0 border-b-[5px] shadow-lg z-10
+                            w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[1.25rem] flex flex-col items-center justify-center shrink-0 border-b-[3px] md:border-b-[5px] shadow-lg z-10
                             ${isLocked 
                             ? 'bg-slate-300 border-slate-400 text-slate-500' 
                             : isNext
                                 ? 'bg-candy-yellow-base border-candy-yellow-dark text-white'
                                 : `${currentAssort.icon} ${currentAssort.iconBorder} text-white`}
                         `}>
-                            {isLocked ? <Lock size={26} /> : <span className="font-display text-3xl drop-shadow-md">{lvl.level}</span>}
+                            {isLocked ? <Lock size={20} className="md:w-[26px]" /> : <span className="font-display text-xl md:text-3xl drop-shadow-md">{lvl.level}</span>}
                         </div>
 
                         <div className="flex-1 min-w-0 z-10">
-                            <h3 className={`font-display text-xl leading-tight mb-2 truncate ${isLocked ? 'text-slate-500' : 'text-slate-800'}`}>
+                            <h3 className={`font-display text-base md:text-xl leading-tight mb-1 md:mb-2 truncate ${isLocked ? 'text-slate-500' : 'text-slate-800'}`}>
                             {lvl.name}
                             </h3>
                             
                             {!isLocked ? (
-                            <div className="flex gap-2 bg-white/60 inline-flex px-4 py-1.5 rounded-full border-2 border-white/40 shadow-inner">
+                            <div className="flex gap-1 md:gap-2 bg-white/60 inline-flex px-2 py-1 md:px-4 md:py-1.5 rounded-full border-2 border-white/40 shadow-inner">
                                 {[1, 2, 3].map((i) => (
                                 <Star 
                                     key={i} 
-                                    size={16} 
-                                    className={`drop-shadow-sm ${i <= stars ? "fill-candy-yellow-base text-orange-400" : "fill-slate-300 text-slate-300"}`} 
+                                    size={12} 
+                                    className={`drop-shadow-sm md:w-4 md:h-4 ${i <= stars ? "fill-candy-yellow-base text-orange-400" : "fill-slate-300 text-slate-300"}`} 
                                 />
                                 ))}
                             </div>
                             ) : (
-                            <span className="text-[10px] text-slate-500 font-black uppercase tracking-widest bg-slate-300/50 px-3 py-1.5 rounded-xl border border-slate-400">{t.menu.locked}</span>
+                            <span className="text-[10px] text-slate-500 font-black uppercase tracking-widest bg-slate-300/50 px-2 py-1 md:px-3 md:py-1.5 rounded-lg md:rounded-xl border border-slate-400">{t.menu.locked}</span>
                             )}
                         </div>
                     </div>
@@ -108,39 +108,39 @@ export const MainMenu: React.FC<MainMenuProps> = ({ stats, availableLevels, onSe
   const currentAgeUnlocked = stats.selectedAge ? (stats.unlockedLevels[stats.selectedAge] || 1) : 1;
 
   return (
-    <div className="game-container flex flex-col gap-10 animate-pop-in">
+    <div className="game-container flex flex-col gap-6 md:gap-10 animate-pop-in pb-24 md:pb-0">
       
       {/* TOP HUD - SOLID 3D CAPSULE */}
-      <div className="flex flex-wrap justify-between items-center gap-6">
+      <div className="flex flex-wrap justify-between items-center gap-3 md:gap-6">
           <button 
             onClick={onChangeAge}
-            className="flex items-center gap-4 bg-candy-pink-light px-6 py-3.5 rounded-[2rem] shadow-candy-md border-b-[8px] border-x-2 border-t-2 border-candy-pink-base hover:scale-105 active:scale-95 transition-all overflow-hidden relative group"
+            className="flex items-center gap-2 md:gap-4 bg-candy-pink-light px-4 py-2 md:px-6 md:py-3.5 rounded-2xl md:rounded-[2rem] shadow-candy-md border-b-[4px] md:border-b-[8px] border-x-2 border-t-2 border-candy-pink-base hover:scale-105 active:scale-95 transition-all overflow-hidden relative group"
           >
               <div className="candy-gloss opacity-60" />
-              <Baby size={28} className="text-candy-pink-dark relative z-10" />
-              <span className="font-black text-candy-pink-deep text-lg uppercase tracking-wide relative z-10">{t.menu.age} {stats.selectedAge}</span>
+              <Baby size={20} className="md:w-[28px] md:h-[28px] text-candy-pink-dark relative z-10" />
+              <span className="font-black text-candy-pink-deep text-sm md:text-lg uppercase tracking-wide relative z-10">{t.menu.age} {stats.selectedAge}</span>
           </button>
 
-          <div className="flex gap-4 items-center">
-              <div className="flex items-center gap-4 bg-candy-yellow-light px-7 py-3.5 rounded-[2.5rem] shadow-candy-md border-b-[8px] border-x-2 border-t-2 border-candy-yellow-base overflow-hidden relative">
+          <div className="flex gap-2 md:gap-4 items-center">
+              <div className="flex items-center gap-2 md:gap-4 bg-candy-yellow-light px-4 py-2 md:px-7 md:py-3.5 rounded-[2rem] md:rounded-[2.5rem] shadow-candy-md border-b-[4px] md:border-b-[8px] border-x-2 border-t-2 border-candy-yellow-base overflow-hidden relative">
                   <div className="candy-gloss opacity-60" />
-                  <div className="bg-candy-yellow-base p-2 rounded-full shadow-sm text-white relative z-10">
-                    <Coins size={24} fill="currentColor" />
+                  <div className="bg-candy-yellow-base p-1.5 md:p-2 rounded-full shadow-sm text-white relative z-10">
+                    <Coins size={18} className="md:w-[24px] md:h-[24px]" fill="currentColor" />
                   </div>
-                  <span className="font-display text-2xl text-candy-yellow-deep tracking-wider relative z-10">{stats.coins}</span>
+                  <span className="font-display text-lg md:text-2xl text-candy-yellow-deep tracking-wider relative z-10">{stats.coins}</span>
               </div>
               
-              <div className="hidden sm:flex items-center gap-4 bg-candy-blue-light px-7 py-3.5 rounded-[2.5rem] shadow-candy-md border-b-[8px] border-x-2 border-t-2 border-candy-blue-base overflow-hidden relative">
+              <div className="flex items-center gap-2 md:gap-4 bg-candy-blue-light px-4 py-2 md:px-7 md:py-3.5 rounded-[2rem] md:rounded-[2.5rem] shadow-candy-md border-b-[4px] md:border-b-[8px] border-x-2 border-t-2 border-candy-blue-base overflow-hidden relative">
                   <div className="candy-gloss opacity-60" />
-                  <div className="bg-candy-blue-base p-2 rounded-full shadow-sm text-white relative z-10">
-                    <Trophy size={24} fill="currentColor" />
+                  <div className="bg-candy-blue-base p-1.5 md:p-2 rounded-full shadow-sm text-white relative z-10">
+                    <Trophy size={18} className="md:w-[24px] md:h-[24px]" fill="currentColor" />
                   </div>
-                  <span className="font-display text-2xl text-candy-blue-deep tracking-wider relative z-10">{stats.totalScore}</span>
+                  <span className="font-display text-lg md:text-2xl text-candy-blue-deep tracking-wider relative z-10">{stats.totalScore}</span>
               </div>
           </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-10">
           {/* SIDEBAR - SOLID 3D SIDEBAR */}
           <div className="hidden lg:flex flex-col w-80 shrink-0 gap-8">
               <div className="bg-candy-indigo-light rounded-[3rem] border-b-[12px] border-x-2 border-t-2 border-candy-indigo-base p-10 flex flex-col items-center h-full shadow-candy-lg relative overflow-hidden">
@@ -157,7 +157,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ stats, availableLevels, onSe
           </div>
 
           {/* LEVEL GRID */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 overflow-y-auto no-scrollbar max-h-[70vh] lg:max-h-none pr-3">
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-4 overflow-y-auto no-scrollbar max-h-[75vh] lg:max-h-none pr-1 md:pr-3">
               {availableLevels.map((lvl) => (
                   <LevelCard 
                     key={lvl.id}
@@ -176,18 +176,18 @@ export const MainMenu: React.FC<MainMenuProps> = ({ stats, availableLevels, onSe
       </div>
 
       {/* MOBILE FOOTER NAV - SOLID 3D */}
-      <div className="lg:hidden fixed bottom-8 left-8 right-8 z-50 flex justify-between items-end pointer-events-none">
+      <div className="lg:hidden fixed bottom-6 left-6 right-6 z-50 flex justify-between items-end pointer-events-none">
           <div className="pointer-events-auto">
               <button 
                 onClick={onOpenStats}
-                className="w-20 h-20 bg-candy-purple-light border-b-[10px] border-x-2 border-t-2 border-candy-purple-base text-candy-purple-dark rounded-[2rem] shadow-candy-lg flex items-center justify-center active:translate-y-2 active:border-b-0 transition-all overflow-hidden relative"
+                className="w-16 h-16 md:w-20 md:h-20 bg-candy-purple-light border-b-[6px] md:border-b-[10px] border-x-2 border-t-2 border-candy-purple-base text-candy-purple-dark rounded-2xl md:rounded-[2rem] shadow-candy-lg flex items-center justify-center active:translate-y-2 active:border-b-0 transition-all overflow-hidden relative"
               >
                   <div className="candy-gloss opacity-60" />
-                  <ChartNoAxesCombined size={40} className="relative z-10" />
+                  <ChartNoAxesCombined size={32} className="md:w-10 md:h-10 relative z-10" />
               </button>
           </div>
-          <div className="pointer-events-auto transform translate-y-6">
-              <Avatar type={stats.avatarId} emotion="happy" className="w-36 h-36 drop-shadow-2xl animate-float" />
+          <div className="pointer-events-auto transform translate-y-4 md:translate-y-6">
+              <Avatar type={stats.avatarId} emotion="happy" className="w-28 h-28 md:w-36 md:h-36 drop-shadow-2xl animate-float" />
           </div>
       </div>
     </div>

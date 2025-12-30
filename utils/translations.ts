@@ -3,7 +3,7 @@ export type Language = 'id' | 'en';
 
 export const translations = {
   id: {
-    appTitle: "Kuis Matematika",
+    appTitle: "KUIS MATEMATIKA",
     subTitle: "Petualangan Angka!",
     meta: {
       title: "Kuis Matematika: Game Edukasi Anak & SD",
@@ -28,36 +28,40 @@ export const translations = {
       placeholder: "Ketik nama...",
       button: "MULAI MAIN",
       chooseAvatar: "Pilih Jagoanmu",
-      abilityLabel: "Kekuatan Khusus:",
-      heroName: "NAMA PAHLAWAN",
-      startQuest: "MULAI PETUALANGAN",
-      tapToShop: "KETUK UNTUK BELANJA"
+      abilityLabel: "Kekuatan:",
+      heroName: "NAMA HERO",
+      startQuest: "MULAI",
+      tapToShop: "KE TOKO",
+      leaderboardBtn: "PERINGKAT"
     },
     settings: {
       title: "PENGATURAN",
       language: "BAHASA",
-      music: "MUSIK BGM",
+      music: "MUSIK",
       sfx: "EFEK SUARA",
-      info: "INFO"
+      info: "INFO",
+      theme: "TEMA",
+      darkMode: "MODE GELAP"
     },
     about: {
-      title: "Informasi Game",
-      sectionGame: "Tentang Game",
+      title: "Info Game",
+      sectionGame: "Tentang",
       sectionDev: "Pengembang",
-      sectionChangelog: "Riwayat Update",
-      sectionCredits: "Kredit & Aset",
-      gameDescription: "MathQuest adalah game edukasi interaktif yang dirancang untuk anak usia 6-12 tahun. Bertujuan melatih kemampuan berhitung (tambah, kurang, kali, bagi) dengan cara yang menyenangkan melalui sistem level dan koleksi avatar.",
+      sectionChangelog: "Update",
+      sectionCredits: "Kredit",
+      gameDescription: "MathQuest adalah game edukasi interaktif untuk anak usia 6-12 tahun. Melatih berhitung (tambah, kurang, kali, bagi) dengan cara seru.",
       developerName: "Febri Suryanto",
-      developerTitle: "Senior Frontend Engineer & UI/UX Specialist",
-      developerBio: "Seorang pengembang web yang berdedikasi menciptakan pengalaman digital edukatif yang menyenangkan bagi anak-anak Indonesia. Fokus pada performa dan estetika visual.",
+      developerTitle: "Frontend Engineer",
+      developerBio: "Pengembang web yang berdedikasi menciptakan pengalaman digital edukatif bagi anak Indonesia.",
       developerLocation: "Serang Banten, Indonesia",
-      visit: "Kunjungi Website",
-      socialFollow: "Ikuti Saya:",
-      versionLabel: "Versi Saat Ini",
+      visit: "Website",
+      socialFollow: "Ikuti:",
+      versionLabel: "Versi",
       close: "Tutup",
       madeWith: "DIBUAT DENGAN",
       inLocation: "DI SERANG BANTEN",
       fromBanten: "Dibuat dengan cinta dari Serang Banten",
+      copyright: "Hak Cipta",
       changes: [
         "v0.8: Lokasi Pengembang diperbarui ke Serang Banten & Copyright Dinamis.",
         "v0.7: Perbaikan translasi 100% & Manual Toggle Bahasa.",
@@ -77,75 +81,76 @@ export const translations = {
     },
     ageSelect: {
       title: "Halo Teman!",
-      subtitle: "Berapa usiamu?",
+      subtitle: "Usiamu?",
       years: "Th"
     },
     menu: {
       age: "Usia",
       locked: "Terkunci",
-      rankStats: "PERINGKAT & STATS"
+      rankStats: "STATS"
     },
     game: {
       score: "SKOR",
       loading: "Memuat...",
       correct: "BENAR!",
       scorePopup: "poin",
-      oops: "OOPS!",
-      correctAnswerIs: "JAWABAN BENAR ADALAH:",
-      finish: "SELESAI"
+      oops: "UPS!",
+      correctAnswerIs: "JAWABANNYA:",
+      finish: "SELESAI",
+      progress: "Soal"
     },
     result: {
       amazing: "Luar Biasa!",
-      good: "Bagus Sekali!",
-      oops: "Oops!",
-      levelComplete: "Level Selesai!",
-      tryAgain: "Ayo coba lagi!",
+      good: "Bagus!",
+      oops: "Ups!",
+      levelComplete: "Selesai!",
+      tryAgain: "Coba Lagi!",
       score: "Skor",
-      earnedCoins: "Koin Didapat",
+      earnedCoins: "Dapat Koin",
       totalCoins: "Total Koin",
       target: "Target",
       next: "Lanjut",
-      retry: "Ulangi",
+      retry: "Ulang",
       menu: "Menu"
     },
     stats: {
-      title: "Pencapaian",
+      title: "Prestasi",
       score: "Skor",
       accuracy: "Akurasi",
       winRate: "Menang",
-      chartTitle: "PROGRES LEVEL",
-      leaderboardTitle: "PAPAN PERINGKAT",
-      emptyLeaderboard: "Belum ada juara. Jadilah yang pertama!",
+      chartTitle: "PROGRES",
+      leaderboardTitle: "PERINGKAT",
+      emptyLeaderboard: "Belum ada juara.",
       ranks: {
-        beginner: "Murid Pemula",
-        adventurer: "Petualang Angka",
-        expert: "Ahli Matematika",
-        master: "Master Kuis"
+        beginner: "Pemula",
+        adventurer: "Petualang",
+        expert: "Ahli",
+        master: "Master"
       }
     },
     ui: {
-      shopHeader: "TOKO KARAKTER",
+      shopHeader: "TOKO",
       close: "TUTUP",
       select: "PILIH",
-      buyFor: "BELI SEHARGA"
+      buyFor: "BELI"
     },
     abilities: {
       robot: "Skor +5% (Cerdas)",
-      angel: "Waktu +5 Detik (Pelindung)",
-      fairy: "Bonus Streak Besar (Ajaib)",
-      wizard: "Waktu +2 Detik (Penyihir)",
+      angel: "Waktu +5s (Pelindung)",
+      fairy: "Bonus Streak (Ajaib)",
+      wizard: "Waktu +2s (Penyihir)",
       royal: "Skor +25% (Raja)",
       hero: "Skor +15% (Pemberani)",
-      cat: "Mulai dengan Combo x1 (Lincah)",
-      bunny: "Waktu +5 Detik (Cepat)",
-      bear: "Waktu +3 Detik (Kuat)",
-      dino: "Bonus Streak Raksasa (Ganas)",
-      ninja: "Mulai dengan Combo x2 (Senyap)",
-      alien: "Waktu +4 Detik (Antariksa)"
+      cat: "Combo Awal x1 (Lincah)",
+      bunny: "Waktu +5s (Cepat)",
+      bear: "Waktu +3s (Kuat)",
+      dino: "Bonus Streak (Ganas)",
+      ninja: "Combo Awal x2 (Senyap)",
+      alien: "Waktu +4s (Antariksa)"
     }
   },
   en: {
-    appTitle: "Math Quiz",
+    appTitle: "MATH QUEST",
     subTitle: "Number Adventure!",
     meta: {
       title: "Math Quiz: Kids Educational Game",
@@ -153,53 +158,57 @@ export const translations = {
       keywords: "math quiz, kids math games, educational games, learn math, elementary math, febri suryanto"
     },
     shop: {
-      title: "Choose Character",
+      title: "Choose Hero",
       coins: "Coins:",
       buy: "BUY",
       select: "SELECT",
-      selected: "SELECTED",
+      selected: "CHOSEN",
       locked: "LOCKED",
       price: "Price:",
-      notEnough: "Need more coins!",
-      success: "Purchased!",
-      confirm: "Buy this character?"
+      notEnough: "Need Coins!",
+      success: "Got it!",
+      confirm: "Buy this hero?"
     },
     nameInput: {
-      title: "What's Your Name?",
-      subtitle: "Choose a hero and start!",
+      title: "Your Name?",
+      subtitle: "Pick a hero & start!",
       placeholder: "Type name...",
-      button: "START GAME",
-      chooseAvatar: "Choose Hero",
-      abilityLabel: "Special Power:",
+      button: "START",
+      chooseAvatar: "Pick Hero",
+      abilityLabel: "Power:",
       heroName: "HERO NAME",
-      startQuest: "START QUEST",
-      tapToShop: "TAP TO SHOP"
+      startQuest: "START",
+      tapToShop: "GO SHOP",
+      leaderboardBtn: "RANKS"
     },
     settings: {
       title: "SETTINGS",
-      language: "LANGUAGE",
-      music: "BGM MUSIC",
-      sfx: "SOUND FX",
-      info: "INFO"
+      language: "LANG",
+      music: "MUSIC",
+      sfx: "SOUND",
+      info: "INFO",
+      theme: "THEME",
+      darkMode: "DARK MODE"
     },
     about: {
-      title: "Game Information",
-      sectionGame: "About Game",
-      sectionDev: "Developer",
-      sectionChangelog: "Update History",
-      sectionCredits: "Credits & Assets",
-      gameDescription: "MathQuest is an interactive educational game designed for children aged 6-12. It aims to train math skills (addition, subtraction, multiplication, division) in a fun way through a leveling system and avatar collection.",
+      title: "Game Info",
+      sectionGame: "About",
+      sectionDev: "Dev",
+      sectionChangelog: "Updates",
+      sectionCredits: "Credits",
+      gameDescription: "MathQuest is a fun educational game for kids 6-12. Practice math skills with avatars and levels.",
       developerName: "Febri Suryanto",
-      developerTitle: "Senior Frontend Engineer & UI/UX Specialist",
-      developerBio: "A dedicated web developer creating fun educational digital experiences for children. Focused on performance and visual aesthetics.",
+      developerTitle: "Frontend Engineer",
+      developerBio: "Dedicated web developer creating fun educational digital experiences for children.",
       developerLocation: "Serang Banten, Indonesia",
-      visit: "Visit Website",
-      socialFollow: "Follow Me:",
-      versionLabel: "Current Version",
+      visit: "Website",
+      socialFollow: "Follow:",
+      versionLabel: "Ver",
       close: "Close",
       madeWith: "MADE WITH",
       inLocation: "IN SERANG BANTEN",
       fromBanten: "Built with love from Serang Banten",
+      copyright: "Copyright",
       changes: [
         "v0.8: Developer location updated to Serang Banten & Dynamic Copyright.",
         "v0.7: 100% Translation Fix & Manual Language Toggle.",
@@ -218,14 +227,14 @@ export const translations = {
       ]
     },
     ageSelect: {
-      title: "Hello Friend!",
-      subtitle: "How old are you?",
+      title: "Hi Friend!",
+      subtitle: "Age?",
       years: "Yo"
     },
     menu: {
       age: "Age",
       locked: "Locked",
-      rankStats: "RANK & STATS"
+      rankStats: "STATS"
     },
     game: {
       score: "SCORE",
@@ -233,57 +242,58 @@ export const translations = {
       correct: "CORRECT!",
       scorePopup: "pts",
       oops: "OOPS!",
-      correctAnswerIs: "CORRECT ANSWER IS:",
-      finish: "FINISH"
+      correctAnswerIs: "ANSWER:",
+      finish: "FINISH",
+      progress: "Quest"
     },
     result: {
       amazing: "Amazing!",
-      good: "Great Job!",
+      good: "Great!",
       oops: "Oops!",
-      levelComplete: "Level Complete!",
-      tryAgain: "Let's try again!",
+      levelComplete: "Done!",
+      tryAgain: "Retry!",
       score: "Score",
-      earnedCoins: "Coins Earned",
-      totalCoins: "Total Coins",
+      earnedCoins: "Coins",
+      totalCoins: "Total",
       target: "Target",
       next: "Next",
       retry: "Retry",
       menu: "Menu"
     },
     stats: {
-      title: "Achievements",
+      title: "Stats",
       score: "Score",
       accuracy: "Accuracy",
       winRate: "Win Rate",
-      chartTitle: "LEVEL PROGRESS",
-      leaderboardTitle: "LEADERBOARD",
-      emptyLeaderboard: "No champions yet. Be the first!",
+      chartTitle: "PROGRESS",
+      leaderboardTitle: "RANKS",
+      emptyLeaderboard: "No champions yet.",
       ranks: {
-        beginner: "Beginner Student",
-        adventurer: "Number Adventurer",
-        expert: "Math Expert",
-        master: "Quiz Master"
+        beginner: "Beginner",
+        adventurer: "Adventurer",
+        expert: "Expert",
+        master: "Master"
       }
     },
     ui: {
-      shopHeader: "CHARACTER SHOP",
+      shopHeader: "SHOP",
       close: "CLOSE",
-      select: "SELECT",
-      buyFor: "BUY FOR"
+      select: "PICK",
+      buyFor: "BUY"
     },
     abilities: {
       robot: "Score +5% (Smart)",
-      angel: "Time +5 Seconds (Guardian)",
-      fairy: "Huge Streak Bonus (Magic)",
-      wizard: "Time +2 Seconds (Wizardry)",
+      angel: "Time +5s (Guardian)",
+      fairy: "Big Streak (Magic)",
+      wizard: "Time +2s (Wizardry)",
       royal: "Score +25% (King)",
       hero: "Score +15% (Brave)",
-      cat: "Start with Combo x1 (Agile)",
-      bunny: "Time +5 Seconds (Fast)",
-      bear: "Time +3 Seconds (Strong)",
-      dino: "Giant Streak Bonus (Fierce)",
-      ninja: "Start with Combo x2 (Stealth)",
-      alien: "Time +4 Seconds (Space)"
+      cat: "Combo Start x1 (Agile)",
+      bunny: "Time +5s (Fast)",
+      bear: "Time +3s (Strong)",
+      dino: "Giant Streak (Fierce)",
+      ninja: "Combo Start x2 (Stealth)",
+      alien: "Time +4s (Space)"
     }
   }
 };
